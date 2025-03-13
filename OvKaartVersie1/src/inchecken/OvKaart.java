@@ -4,8 +4,8 @@ public class OvKaart {
 	
     private int euro = 0;
     private int cents = 0;
-    private boolean checkedIn = false;
-    private String cardLocation = "none";
+    public boolean checkedIn = false;
+    public String cardLocation = "none";
     
 	public OvKaart(int euro, int cents, boolean checkedIn) {
 		this.euro = euro;
@@ -16,7 +16,7 @@ public class OvKaart {
 	public void PrintInfo() {
 		System.out.println("Balance: " + this.euro + "." + this.cents);
 		System.out.println("Checked in: " + this.checkedIn);
-		System.out.println("Current location: " + this.cardLocation);
+		System.out.println("Checked in location: " + this.cardLocation);
 	}
 	
 	public void AddMoney(double money) {
@@ -26,7 +26,8 @@ public class OvKaart {
 		this.cents = this.cents + currencyCents;
 	}
 	
-	public void CheckIn() {
-		System.out.println("Still WIP");
+	public void CheckingIn(String position, int stepInTarrif) {
+		this.checkedIn = true;
+		this.cardLocation = position;
 	}
 }
