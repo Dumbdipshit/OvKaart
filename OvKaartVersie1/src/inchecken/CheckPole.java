@@ -12,6 +12,6 @@ public class CheckPole {
 	}
 	
 	public void CheckIn(OvKaart ovKaart1) {
-		ovKaart1.CheckingIn(poleLocation);
+		ovKaart1.CheckingIn(poleLocation, stepInTarrif);
 	}
 }

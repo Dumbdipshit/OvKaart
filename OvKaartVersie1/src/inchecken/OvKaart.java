@@ -26,8 +26,21 @@ public class OvKaart {
 		this.cents = this.cents + currencyCents;
 	}
 	
+	public void RemoveMoney(double money) {
+		int currencyEuro = (int) money;
+		this.euro = this.euro - currencyEuro;
+		int currencyCents = (int) (money * 100) - (currencyEuro * 100);
+		this.cents = this.cents - currencyCents;
+	}
+	
 	public void CheckingIn(String position, int stepInTarrif) {
-		this.checkedIn = true;
-		this.cardLocation = position;
+		double cardBalance = euro+(cents/100.0);
+		if(cardBalance - stepInTarrif < 0) {
+			System.out.println("The Pole gives a error and says that you dont have enough money");
+		}else {
+			RemoveMoney(Math.round(20.00 * 100.0) / 100.0);
+			this.checkedIn = true;
+			this.cardLocation = position;
+		}
 	}
 }
