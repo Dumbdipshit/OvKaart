@@ -38,7 +38,7 @@ public class OvKaart {
 	
 	public void CheckingIn(String position, int stepInTarrif) {
 		double cardBalance = euro+(cents/100.0);
-		if(cardBalance - stepInTarrif < 0) {
+		if((cardBalance - stepInTarrif) < 0) {
 			System.out.println("The Pole gives a error and says that you dont have enough money");
 		}else {
 			RemoveMoney(Math.round(20.00 * 100.0) / 100.0);
