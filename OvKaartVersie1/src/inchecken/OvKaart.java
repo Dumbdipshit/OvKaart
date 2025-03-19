@@ -6,7 +6,8 @@ public class OvKaart {
     private int euro = 0;
     private int cents = 0;
     public boolean checkedIn = false;
-    public String cardLocation = "none";
+    public String cardCheckInLocation = "none";
+    public double tarif = 0.0;
     
 	public OvKaart(String owner, int euro, int cents, boolean checkedIn) {
 		this.owner = owner;
@@ -19,7 +20,7 @@ public class OvKaart {
 		System.out.println("Owner of the card: " + owner);
 		System.out.println("Balance: " + euro + "." + cents);
 		System.out.println("Checked in: " + checkedIn);
-		System.out.println("Checked in location: " + cardLocation);
+		System.out.println("Checked in location: " + cardCheckInLocation);
 	}
 	
 	public void AddMoney(double money) {
@@ -30,6 +31,7 @@ public class OvKaart {
 	}
 	
 	public void RemoveMoney(double money) {
+		tarif = money;
 		int currencyEuro = (int) money;
 		this.euro = euro - currencyEuro;
 		int currencyCents = (int) (money * 100) - (currencyEuro * 100);
@@ -41,9 +43,20 @@ public class OvKaart {
 		if((cardBalance - stepInTarrif) < 0) {
 			System.out.println("The Pole gives a error and says that you dont have enough money");
 		}else {
-			RemoveMoney(Math.round(20.00 * 100.0) / 100.0);
+			RemoveMoney(Math.round(stepInTarrif * 100.0) / 100.0);
 			checkedIn = true;
-			cardLocation = position;
+			cardCheckInLocation = position;
+		}
+	}
+	
+	public void CheckOut(int hour) {
+		if(hour < 6) {
+			checkedIn = false;
+			cardCheckInLocation = "None";
+			AddMoney(tarif);
+		}else {
+			checkedIn = false;
+			cardCheckInLocation = "None";
 		}
 	}
 }
