@@ -2,9 +2,8 @@ package inchecken;
 
 public class Main{
 	public static void main(String[] args) {
-		Location Hamburg = new Location(10, 15, "Hamburg")
-		CheckPole Hamburg = new CheckPole(false, "Hamburg", 20);
-		CheckPole England = new CheckPole(false, "England", 20);
+		CheckPole Hamburg = new CheckPole(false, "Hamburg", 20, 10, 15);
+		CheckPole England = new CheckPole(false, "England", 20, 20, 25);
 		OvKaart ovKaart1 = new OvKaart("Anonymous", 0, 0, false);
 		
 		ovKaart1.AddMoney(Math.round(25.199 * 100.0) / 100.0);

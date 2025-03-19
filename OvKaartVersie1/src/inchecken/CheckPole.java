@@ -5,11 +5,15 @@ public class CheckPole {
 	private boolean doorsOpen = false;
 	public String poleLocation = "none";
 	public int stepInTarrif = 4;
+	int xPosition = 0;
+	int yPosition = 0;
 	
-	public CheckPole(boolean hasDoors, String poleLocation, int stepInTarrif) {
+	public CheckPole(boolean hasDoors, String poleLocation, int stepInTarrif, int x, int y) {
 		this.hasDoors = hasDoors;
 		this.poleLocation = poleLocation;
 		this.stepInTarrif = stepInTarrif;
+		this.xPosition = x;
+		this.yPosition = y;
 		if(hasDoors == false) {
 			doorsOpen = true;
 		}else {

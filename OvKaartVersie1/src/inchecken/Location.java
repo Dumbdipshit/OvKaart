@@ -1,12 +1,10 @@
 package inchecken;
 
 public class Location {
-	public int x = 0;
-	public int y
+	public int xPosition = 0;
+	public int yPosition = 0;
+
 	
 	
-	public Location(int xPosition, int yPosition, String "Location") {
-		
-	}
 		
 }
