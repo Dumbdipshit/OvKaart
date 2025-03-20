@@ -28,11 +28,12 @@ public class CheckPole {
 		System.out.println("The step in cost: " + stepInTarrif);
 	}
 	
-	public void CheckIn(OvKaart ovKaart1) {
+	public void CheckIn(OvKaart ovKaart1,  Location CalculateDistance) {
 		boolean enoughMoney = false;
 		
 		enoughMoney = ovKaart1.CheckingIn(poleLocation, stepInTarrif);
 			if(enoughMoney == true) {
+				CalculateDistance.CheckInLocation(xPosition, yPosition);
 				if(hasDoors == true || hasDoors == false) {
 					doorsOpen = true;
 				}else {
@@ -42,8 +43,9 @@ public class CheckPole {
 			
 	}
 	
-	public void CheckOut(OvKaart ovKaart1) {
+	public void CheckOut(OvKaart ovKaart1, Location CalculateDistance) {
 		int hoursSinceLastInCheck = 1;
+		CalculateDistance.CheckOutLocation(xPosition, yPosition);
 		ovKaart1.CheckingOut(hoursSinceLastInCheck);
 	}
 	

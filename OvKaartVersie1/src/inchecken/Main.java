@@ -8,7 +8,7 @@ public class Main{
 		OvKaart ovKaart1 = new OvKaart("Anonymous", 0, 0, false);
 		
 		ovKaart1.AddMoney(Math.round(25.199 * 100.0) / 100.0);
-		Hamburg.CheckIn(ovKaart1);
+		Hamburg.CheckIn(ovKaart1, CalculateDistance);
 		ovKaart1.PrintInfo();
 		System.out.println("");
 		Hamburg.CheckPoleInfo();

@@ -9,8 +9,15 @@ public class Location {
 	int endingX;
 	int endingY;
 	
-
+	public void CheckInLocation(int startingX, int startingY) {
+		this.startingX = startingX;
+		this.startingY = startingY;
+	}
 	
+	public void CheckOutLocation(int endingX, int endingY) {
+		this.endingX = endingX;
+		this.endingY = endingY;
+	}
 	
 		
 }
