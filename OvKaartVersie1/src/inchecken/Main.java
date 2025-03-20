@@ -2,6 +2,7 @@ package inchecken;
 
 public class Main{
 	public static void main(String[] args) {
+		Location CalculateDistance = new Location();
 		CheckPole Hamburg = new CheckPole(false, "Hamburg", 20, 10, 15);
 		CheckPole England = new CheckPole(false, "England", 20, 20, 25);
 		OvKaart ovKaart1 = new OvKaart("Anonymous", 0, 0, false);

@@ -1,8 +1,14 @@
 package inchecken;
 
+import java.util.ArrayList;
+
 public class Location {
-	public int xPosition = 0;
-	public int yPosition = 0;
+	int startingX;
+	int startingY;
+	
+	int endingX;
+	int endingY;
+	
 
 	
 	

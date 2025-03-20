@@ -38,18 +38,22 @@ public class OvKaart {
 		this.cents = cents - currencyCents;
 	}
 	
-	public void CheckingIn(String position, int stepInTarrif) {
+	public boolean CheckingIn(String position, int stepInTarrif) {
+		boolean enoughMoney = false;
 		double cardBalance = euro+(cents/100.0);
 		if((cardBalance - stepInTarrif) < 0) {
+			enoughMoney = false;
 			System.out.println("The Pole gives a error and says that you dont have enough money");
 		}else {
+			enoughMoney = true;
 			RemoveMoney(Math.round(stepInTarrif * 100.0) / 100.0);
 			checkedIn = true;
 			cardCheckInLocation = position;
 		}
+		return enoughMoney;
 	}
 	
-	public void CheckOut(int hour) {
+	public void CheckingOut(int hour) {
 		if(hour < 6) {
 			checkedIn = false;
 			cardCheckInLocation = "None";

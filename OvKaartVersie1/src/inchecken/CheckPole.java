@@ -29,13 +29,22 @@ public class CheckPole {
 	}
 	
 	public void CheckIn(OvKaart ovKaart1) {
-		ovKaart1.CheckingIn(poleLocation, stepInTarrif);
+		boolean enoughMoney = false;
 		
-		if(hasDoors == true || hasDoors == false) {
-			doorsOpen = true;
-		}else {
-			doorsOpen = false;
-		}
+		enoughMoney = ovKaart1.CheckingIn(poleLocation, stepInTarrif);
+			if(enoughMoney == true) {
+				if(hasDoors == true || hasDoors == false) {
+					doorsOpen = true;
+				}else {
+					doorsOpen = false;
+				}
+			}
+			
+	}
+	
+	public void CheckOut(OvKaart ovKaart1) {
+		int hoursSinceLastInCheck = 1;
+		ovKaart1.CheckingOut(hoursSinceLastInCheck);
 	}
 	
 	
