@@ -1,6 +1,6 @@
 package inchecken;
 
-public class OvKaart {
+public class OvCard {
 	
 	private String owner = "None";
     private int euro = 0;
@@ -9,7 +9,7 @@ public class OvKaart {
     public String cardCheckInLocation = "none";
     public double tarif = 0.0;
     
-	public OvKaart(String owner, int euro, int cents, boolean checkedIn) {
+	public OvCard(String owner, int euro, int cents, boolean checkedIn) {
 		this.owner = owner;
 		this.euro = euro;
 		this.cents = cents;
@@ -21,6 +21,7 @@ public class OvKaart {
 		System.out.println("Balance: " + euro + "." + cents);
 		System.out.println("Checked in: " + checkedIn);
 		System.out.println("Checked in location: " + cardCheckInLocation);
+		System.out.println("");
 	}
 	
 	public void AddMoney(double money) {
@@ -62,5 +63,9 @@ public class OvKaart {
 			checkedIn = false;
 			cardCheckInLocation = "None";
 		}
+	}
+	
+	public void UseCardReader(OvCard ovCard, Location CalculateDistance, CheckPole Location) {
+		Location.UsingCardReader(ovCard, CalculateDistance, Location, checkedIn);
 	}
 }
