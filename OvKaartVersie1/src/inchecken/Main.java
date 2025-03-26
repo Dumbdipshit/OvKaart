@@ -9,7 +9,7 @@ public class Main{
 		
 		OvCard1.AddMoney(Math.round(60.50 * 100.0) / 100.0);
 		OvCard1.PrintInfo();
-		OvCard1.RemoveMoney(50.60);
+		OvCard1.RemoveMoney(Math.round(50.90 * 100.0) / 100.0);
 		OvCard1.PrintInfo();
 	}
 

@@ -33,10 +33,8 @@ public class OvCard {
 	public void RemoveMoney(double money) {
 		double calculationBalance  = euro + ((double) cents/100);
 		calculationBalance = (calculationBalance - money);
-		int currencyEuro = (int) calculationBalance;
-		this.euro = euro - currencyEuro;
-		int currencyCents = (int) (calculationBalance * 100) - (currencyEuro * 100);
-		this.cents = cents - currencyCents;
+		this.euro = (int) calculationBalance;
+		this.cents = ((int)(calculationBalance*100) - (euro*100));
 	}
 	
 	public boolean CheckingIn(String position, int stepInTarrif) {
