@@ -3,7 +3,7 @@ package inchecken;
 import java.util.ArrayList;
 
 public class Location {
-	double costPerDistance = 5.00;
+	double costPerDistance = 0.25;
 	
 	double startingX;
 	double startingY;
@@ -40,7 +40,7 @@ public class Location {
 		
 		xyDistance = (Math.sqrt((yDistance + xDistance)));
 		travelCost = (xyDistance * costPerDistance);
-		ovCard.RemoveMoney(50.60);
+		ovCard.RemoveMoney((Math.round(travelCost * 100.0) / 100.0));
 	}
 	
 		

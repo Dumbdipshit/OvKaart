@@ -7,9 +7,10 @@ public class Main{
 		CheckPole England = new CheckPole(false, "England", 20, 20.0, 10.0);
 		OvCard OvCard1 = new OvCard("Anonymous", 0, 0, false);
 		
-		OvCard1.AddMoney(Math.round(60.50 * 100.0) / 100.0);
+		OvCard1.AddMoney(Math.round(200 * 100.0) / 100.0);
 		OvCard1.PrintInfo();
-		OvCard1.RemoveMoney(Math.round(50.90 * 100.0) / 100.0);
+		OvCard1.UseCardReader(OvCard1, CalculateDistance, England);
+		OvCard1.UseCardReader(OvCard1, CalculateDistance, Hamburg);
 		OvCard1.PrintInfo();
 	}
 
