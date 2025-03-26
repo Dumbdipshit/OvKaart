@@ -40,7 +40,7 @@ public class Location {
 		
 		xyDistance = (Math.sqrt((yDistance + xDistance)));
 		travelCost = (xyDistance * costPerDistance);
-		ovCard.RemoveMoney(travelCost);
+		ovCard.RemoveMoney(50.60);
 	}
 	
 		

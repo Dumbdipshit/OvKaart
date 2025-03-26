@@ -31,9 +31,11 @@ public class OvCard {
 	}
 	
 	public void RemoveMoney(double money) {
-		int currencyEuro = (int) money;
+		double calculationBalance  = euro + ((double) cents/100);
+		calculationBalance = (calculationBalance - money);
+		int currencyEuro = (int) calculationBalance;
 		this.euro = euro - currencyEuro;
-		int currencyCents = (int) (money * 100) - (currencyEuro * 100);
+		int currencyCents = (int) (calculationBalance * 100) - (currencyEuro * 100);
 		this.cents = cents - currencyCents;
 	}
 	
