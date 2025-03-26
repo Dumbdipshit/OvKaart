@@ -7,7 +7,6 @@ public class OvCard {
     private int cents = 0;
     public boolean checkedIn = false;
     public String cardCheckInLocation = "none";
-    public double tarif = 0.0;
     
 	public OvCard(String owner, int euro, int cents, boolean checkedIn) {
 		this.owner = owner;
@@ -32,7 +31,6 @@ public class OvCard {
 	}
 	
 	public void RemoveMoney(double money) {
-		tarif = money;
 		int currencyEuro = (int) money;
 		this.euro = euro - currencyEuro;
 		int currencyCents = (int) (money * 100) - (currencyEuro * 100);
@@ -54,11 +52,11 @@ public class OvCard {
 		return enoughMoney;
 	}
 	
-	public void CheckingOut(int hour) {
+	public void CheckingOut(int hour, double stepInTarrif) {
 		if(hour < 6) {
 			checkedIn = false;
 			cardCheckInLocation = "None";
-			AddMoney(tarif);
+			AddMoney(stepInTarrif);
 		}else {
 			checkedIn = false;
 			cardCheckInLocation = "None";

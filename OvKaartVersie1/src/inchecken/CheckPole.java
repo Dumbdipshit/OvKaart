@@ -5,10 +5,10 @@ public class CheckPole {
 	private boolean doorsOpen = false;
 	public String poleLocation = "none";
 	public int stepInTarrif = 4;
-	int xPosition = 0;
-	int yPosition = 0;
+	double xPosition = 0;
+	double yPosition = 0;
 	
-	public CheckPole(boolean hasDoors, String poleLocation, int stepInTarrif, int x, int y) {
+	public CheckPole(boolean hasDoors, String poleLocation, int stepInTarrif, double x, double y) {
 		this.hasDoors = hasDoors;
 		this.poleLocation = poleLocation;
 		this.stepInTarrif = stepInTarrif;
@@ -29,10 +29,10 @@ public class CheckPole {
 		System.out.println("");
 	}
 	
-	public void CheckIn(OvCard ovKaart1,  Location CalculateDistance) {
+	public void CheckIn(OvCard ovCard,  Location CalculateDistance) {
 		boolean enoughMoney = false;
 		
-		enoughMoney = ovKaart1.CheckingIn(poleLocation, stepInTarrif);
+		enoughMoney = ovCard.CheckingIn(poleLocation, stepInTarrif);
 			if(enoughMoney == true) {
 				CalculateDistance.CheckInLocation(xPosition, yPosition);
 				if(hasDoors == true || hasDoors == false) {
@@ -44,17 +44,17 @@ public class CheckPole {
 			
 	}
 	
-	public void CheckOut(OvCard ovKaart1, Location CalculateDistance) {
+	public void CheckOut(OvCard ovCard, Location CalculateDistance) {
 		int hoursSinceLastInCheck = 1;
-		CalculateDistance.CheckOutLocation(xPosition, yPosition);
-		ovKaart1.CheckingOut(hoursSinceLastInCheck);
+		CalculateDistance.CheckOutLocation(xPosition, yPosition, ovCard);
+		ovCard.CheckingOut(hoursSinceLastInCheck, stepInTarrif);
 	}
 	
-	public void UsingCardReader(OvCard ovKaart1, Location CalculateDistance, CheckPole Location, boolean checkedIn) {
+	public void UsingCardReader(OvCard ovCard, Location CalculateDistance, CheckPole Location, boolean checkedIn) {
 		if (checkedIn == false) {
-			Location.CheckIn(ovKaart1, CalculateDistance);
+			Location.CheckIn(ovCard, CalculateDistance);
 		}else {
-			Location.CheckOut(ovKaart1, CalculateDistance);
+			Location.CheckOut(ovCard, CalculateDistance);
 		}
 	}
 }
