@@ -3,8 +3,7 @@ package inchecken;
 import java.util.ArrayList;
 
 public class Location {
-	double costPerDistance = 0.25;
-	
+	double travelDistance;
 	double startingX;
 	double startingY;
 	
@@ -16,14 +15,15 @@ public class Location {
 		this.startingY = startingY;
 	}
 	
-	public void CheckOutLocation(double endingX, double endingY, OvCard ovCard) {
+	public double CheckOutLocation(double endingX, double endingY) {
 		this.endingX = endingX;
 		this.endingY = endingY;
 		
-		CalculateTravelCost(ovCard);
+		travelDistance = CalculateTravelDistance();
+		return travelDistance;
 	}
 	
-	public void CalculateTravelCost(OvCard ovCard) {
+	public double CalculateTravelDistance() {
 		double xyDistance = 0.0;
 		double travelCost = 0.00;
 		double xDistance = (startingX - endingX);
@@ -39,9 +39,6 @@ public class Location {
 		xDistance = (Math.pow(xDistance, 2));
 		
 		xyDistance = (Math.sqrt((yDistance + xDistance)));
-		travelCost = ((Math.round(xyDistance * 100.0) / 100.0) * costPerDistance);
-		ovCard.RemoveMoney((Math.round(travelCost * 100.0) / 100.0));
+		return xyDistance;
 	}
-	
-		
 }

@@ -37,7 +37,7 @@ public class OvCard {
 		this.cents = ((int)(calculationBalance*100) - (euro*100));
 	}
 	
-	public boolean CheckingIn(String position, int stepInTarrif) {
+	public boolean CheckingIn(String position, int stepInTarrif, String cardPosition) {
 		boolean enoughMoney = false;
 		double cardBalance = euro+(cents/100.0);
 		if((cardBalance - stepInTarrif) < 0) {
@@ -47,7 +47,7 @@ public class OvCard {
 			enoughMoney = true;
 			RemoveMoney(Math.round(stepInTarrif * 100.0) / 100.0);
 			checkedIn = true;
-			cardCheckInLocation = position;
+			cardCheckInLocation = cardPosition;
 		}
 		return enoughMoney;
 	}
@@ -61,9 +61,5 @@ public class OvCard {
 			checkedIn = false;
 			cardCheckInLocation = "None";
 		}
-	}
-	
-	public void UseCardReader(OvCard ovCard, Location CalculateDistance, CheckPole Location) {
-		Location.UsingCardReader(ovCard, CalculateDistance, Location, checkedIn);
 	}
 }
