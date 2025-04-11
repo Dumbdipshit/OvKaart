@@ -10,6 +10,12 @@ public class Location {
 	double endingX;
 	double endingY;
 	
+	String stationLocation;
+	
+	public Location(String location) {
+		this.stationLocation = location;
+	}
+	
 	public void CheckInLocation(double startingX, double startingY) {
 		this.startingX = startingX;
 		this.startingY = startingY;

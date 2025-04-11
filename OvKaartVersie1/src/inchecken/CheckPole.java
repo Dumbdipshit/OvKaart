@@ -5,7 +5,6 @@ public class CheckPole {
 	double travelDistance;
 	private boolean hasDoors = false;
 	private boolean doorsOpen = false;
-	public String poleLocation = "none";
 	public int stepInTarrif = 4;
 	double xPosition = 0;
 	double yPosition = 0;
@@ -27,15 +26,14 @@ public class CheckPole {
 	public void CheckPoleInfo(){
 		System.out.println("The pole has doors: " + hasDoors);
 		System.out.println("The doors are open: " + doorsOpen);
-		System.out.println("Current location: " + poleLocation);
+		System.out.println("Current location: " + CalculateDistance.stationLocation);
 		System.out.println("The step in cost: " + stepInTarrif);
 		System.out.println("");
 	}
 	
 	public void CheckIn(OvCard ovCard) {
 		boolean enoughMoney = false;
-		
-		enoughMoney = ovCard.CheckingIn(poleLocation, stepInTarrif);
+		enoughMoney = ovCard.CheckingIn(stepInTarrif, CalculateDistance.stationLocation);
 			if(enoughMoney == true) {
 				CalculateDistance.CheckInLocation(xPosition, yPosition);
 				if(hasDoors == true || hasDoors == false) {
