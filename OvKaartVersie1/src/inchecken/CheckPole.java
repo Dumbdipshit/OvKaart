@@ -26,7 +26,7 @@ public class CheckPole {
 	public void CheckPoleInfo(){
 		System.out.println("The pole has doors: " + hasDoors);
 		System.out.println("The doors are open: " + doorsOpen);
-		System.out.println("Current location: " + CalculateDistance.stationLocation);
+		System.out.println("Current location: " + CalculateDistance);
 		System.out.println("The step in cost: " + stepInTarrif);
 		System.out.println("");
 	}
